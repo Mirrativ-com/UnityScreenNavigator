@@ -319,7 +319,7 @@ namespace UnityScreenNavigator.Runtime.Core.Page
 
         internal void BeforeReleaseAndForget()
         {
-            var _ = _lifecycleEvents.ExecuteLifecycleEventsSequentially(x => x.Cleanup());
+            BeforeRelease();
         }
 
         internal AsyncProcessHandle BeforeRelease()
