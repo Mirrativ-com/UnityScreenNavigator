@@ -320,7 +320,7 @@ namespace UnityScreenNavigator.Runtime.Core.Modal
         
         internal void BeforeReleaseAndForget()
         {
-            var _ = _lifecycleEvents.ExecuteLifecycleEventsSequentially(x => x.Cleanup());
+            BeforeRelease();
         }
 
         internal AsyncProcessHandle BeforeRelease()

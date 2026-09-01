@@ -279,7 +279,8 @@ namespace UnityScreenNavigator.Runtime.Core.Sheet
 
         internal void BeforeReleaseAndForget()
         {
-            var _ = _lifecycleEvents.ExecuteLifecycleEventsSequentially(x => x.Cleanup());
+            var lifecycleEventTask = _lifecycleEvents.ExecuteLifecycleEventsSequentially(x => x.Cleanup());
+            CoroutineManager.Instance.Run(CreateCoroutine(lifecycleEventTask));
         }
 
 #if USN_USE_ASYNC_METHODS
